@@ -1,8 +1,10 @@
 # Password Cracker
-This is a tweaked program demonstrating how brute force password crackers work. There is a little more logic used rather than brute forcing each letter to each possible letter it could be. The section [Letter Frequency](#letter-frequency) explains it in more details. The program takes in a user-given password and the program *"guesses"* each characters until the whole string is solved. In practice, this concept is much more difficult because of encryption, but it should help give a perspective on the importance of a strong password.
+This is a tweaked program demonstrating how brute force password crackers work. There is a little more logic used rather than brute forcing each letter to each possible letter it could be. The section [Letter Frequency](#letter-frequency) has a bit more details on it.
 
+## The Server
+Note: this program does **NOT** accurately model how passwords are cracked and how they are stored. Instead, this program uses the most simplified process of how passwords are stored. Many servers are secured and use cryptography to store passwords in a secured way. This program only demonstrates at a shallow level the process of password cracking and the emphasize the importance of a secure password. 
 # Letter Frequency
-Because Python is powerful, it can "crack" any password at ease very quickly. But rather than brute forcing each letter in alphabetical order, it made sense to me that some letters will tend to be used more frequently than others. Here is the [source](http://letterfrequency.org) I used that ranked the frequency of each letter. For this project, I used "Letter Frequency in the English Language". I then add in numbers and symbols.
+Because Python is powerful, it can "crack" any password at ease very quickly. But rather than brute forcing each letter in alphabetical order, it made sense to me that some letters will tend to be used more frequently than others. Here is the [source](http://letterfrequency.org) I used that ranked the frequency of each letter. For this project, I used "Letter Frequency in the English Language". I then add in numbers and symbols into the list of possible characters that could be used in the password.
 
 
 ## File Reading
