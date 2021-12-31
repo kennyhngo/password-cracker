@@ -1,7 +1,7 @@
 # Low level security of a server that holds passwords
 import string
 
-allowed_characters = string.punctuation
+allowed_characters = string.printable
 password_database = {}
 assigned_user_id = 1
 # when the user is prompted to input a password, it gets stored into the database
@@ -38,7 +38,6 @@ def get_username() -> str:
                 print("Exited Program Successfully.")
                 quit()
 
-
     return user_name
 
 def prompt_id(show_password=False) -> str:
@@ -55,4 +54,5 @@ def prompt_id(show_password=False) -> str:
     current_user = {user_name:user_password}
     password_database.update(current_user)
 
+    print() # just for whitespace purposes
     return user_name
