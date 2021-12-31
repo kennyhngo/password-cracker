@@ -12,7 +12,7 @@ This program only demonstrates at a shallow level the process of password cracki
 2. The program stores them as a key:value dict item into a dictionary container.
 
 ## Prepping
-3. The program finds the maximum likelihood of the user's password of being length L. This reduces the the time exponentially since the program can target passwords of only length L.
+3. The program finds the maximum likelihood of the user's password of being length L. This reduces the the time exponentially (more precisely, it reduces the time factorially) since the program can target passwords of only length L.
 
 ## Cracking
 4. The program runs a timed attack on the server and attempts to find a set of characters that the password could be. Correct characters will take longer for the server to respond incorrect to, so slowly deduce each character until the full password is cracked.
