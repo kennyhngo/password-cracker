@@ -1,23 +1,26 @@
 # Password Cracker
-This is a tweaked program demonstrating how brute force password crackers work. There is a little more logic used rather than brute forcing each letter to each possible letter it could be. The section [Letter Frequency](#letter-frequency) has a bit more details on it.
+This is a tweaked program demonstrating how a timed attack password cracker work. [The Server](#the-server) is a simple input that gets the user's username and password, and then stores it into a dictionary.
 
-## The Server
-Note: this program does **NOT** accurately model how passwords are cracked and how they are stored. Instead, this program uses the most simplified process of how passwords are stored. Many servers are secured and use cryptography to store passwords in a secured way. This program only demonstrates at a shallow level the process of password cracking and the emphasize the importance of a secure password. 
-# Letter Frequency
-Because Python is powerful, it can "crack" any password at ease very quickly. But rather than brute forcing each letter in alphabetical order, it made sense to me that some letters will tend to be used more frequently than others. Here is the [source](http://letterfrequency.org) I used that ranked the frequency of each letter. For this project, I used "Letter Frequency in the English Language". I then add in numbers and symbols into the list of possible characters that could be used in the password.
+## "The Server"
+This program does **NOT** accurately model how passwords are cracked and how they are passwords are stored. Instead, this program uses the most simplified process of how passwords are stored. Many servers are secured and use encryption to store passwords in a much more secured way. Most servers also only allow a few number of tries before blocking the user out for fraud or spam attempts, so this program won't work for most secured servers.
 
+This program only demonstrates at a shallow level the process of password cracking and the emphasize the importance of a secure password. 
 
-## File Reading
-I wrote each letter per row in an Excel sheet and CSV file. The program reads the CSV file first. If it is not found, then it will try to read in the excel file with the .xlsx extension. For the excel file, pandas library is used. You may notice in the code that there is a try except block for importing pandas and openpyxl. Although most Python users should have pandas installed by now, there many be a chance that they may not have openpyxl installed. So, I decided to practice safe coding under the assumption that there many be a user that does not have pandas and openpyxl installed.
+# How It Works
+## Setup
+1. The program first prompts the user to enter a username and password.
+2. The program stores them as a key:value dict item into a dictionary container.
+
+## Prepping
+3. The program finds the maximum likelihood of the user's password of being length L. This reduces the the time exponentially since the program can target passwords of only length L.
+
+## Cracking
+4. The program runs a timed attack on the server and attempts to find a set of characters that the password could be. Correct characters will take longer for the server to respond incorrect to, so slowly deduce each character until the full password is cracked.
+
 
 # Future Plans
-I plan on implementing a webpage version of this program so that a Python compiler is not needed to run this. I also plan on adding a file feature. Since cracking one string of password takes much less than a second (about a millisecond) to crack, a file containing many different passwords should be more interesting and time consuming. 
+I plan on implementing a webpage version of this program so that a Python compiler is not needed to run this. I also plan on adding a file feature; where the program can take in a file of passwords and crack each password.
+
+Along with it, I plan on adding more features. One such feature in mind is allowing the user to input N "previous users" into the password database. Currently, the program initializes an password database. This stores all of the usernames and passowrds as a dictionary. Since it is empty, it will obviously be faster to crack your password. This feature will allow the user to insert N computer-generated usernames with corresponding random passwords into the database.
 
 However, as of 2021-12-29 (Dec 29), I currently do not have the knowledge to implement such a software yet.
-
-# Topics Practiced in This Project
-* importing libraries
-* reading files
-  * reading different types of files
-* error and exception handling
-  * using try except clauses
